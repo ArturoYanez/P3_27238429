@@ -1,0 +1,223 @@
+/* Global */
+@font-face{
+	font-family:'Raleway';
+	src:url('/fonts/Raleway-VariableFont_wght.ttf');
+}
+
+
+*, *::before, *::after{
+	margin: 0;
+	padding: 0;
+	font-family: "Raleway", sans-serif;
+}
+
+/* General */
+
+section{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	width: 100%;
+	background: url('/img/login-background.jpg');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+h2{
+	font-size: 2em;
+	color: #fff;
+	text-align: center;
+}
+
+input[type="submit"]{
+  display: block;
+	width: 100%;
+	height: 40px;
+	border-radius: 40px;
+	background-color: #00BCD4;
+	color: #212121;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	font-size: 1em;
+	font-weight: 600;
+}
+
+a{
+	text-decoration: none;
+}
+
+.navbar{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 20px;
+}
+
+.namepage{
+	color: rgba(151, 48, 184, 1.0);
+}
+
+.boton{
+  display: block;
+	width: 100%;
+	height: 40px;
+	border-radius: 40px;
+	background-color: transparent;
+	color: #00BCD4;
+	border: 2px solid #00BCD4;
+	outline: none;
+	cursor: pointer;
+	font-size: 1.2em;
+  text-decoration: none;
+	font-weight: bolder;
+  line-height: 2;
+  text-align: center;
+  margin-top: 5px;
+  transition: .5s all ease;
+}
+.boton:hover{
+	color: #212121;
+  background-color: #00BCD4;
+}
+
+.form-box{
+	position: relative;
+	width: 400px;
+	height: 850px;
+	background: rgba(10, 10, 10, .4);
+	border: 2px solid rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(15px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-value{
+  height: 600px;
+}
+
+.inputbox{
+	position: relative;
+	margin: 30px 0;
+	width: 310px;
+	border-bottom: 2px solid #fff;
+}
+.inputbox label{
+	position: absolute;
+	top: 30px;
+	left: 5px;
+	transform: translateY(-50%);
+	color: #fff;
+	font: size: 1em;
+	pointer.events: none;
+	transition: .5s;
+}
+
+input:focus ~ label,
+input:valid ~ label{
+	top: -5px;
+}
+
+.inputbox input{
+	width: 100%;
+	height: 50px;
+	background: transparent;
+	border: none;
+	outline: none;
+	font-size: 1em;
+	padding: 0 35px 0 5px;
+	color: #fff;
+}
+.inputbox img{
+	position: absolute;
+	right: 8px;
+	color: #fff;
+	font-size: 1.2rem;
+	top: 20px;
+}
+
+.error{
+	color: #ff0000;
+	font-weight: bolder;
+	text-transform: uppercase;
+	margin: -15px 0px 20px;
+	text-align: center;
+}
+
+.hidden{
+	display: none;
+}
+
+.register {
+	font-size: .9em;
+	color: #fff;
+	text-align: center;
+	margin: 25px 0 10px;
+}
+
+.register p a{
+	text-decoration: none;
+	color: #fff;
+	font-weight: 600;
+}
+
+.register p > a:hover{
+	text-decoration: underline;
+}
+
+.login_form{
+  height: 40vh;
+  overflow-y: auto;
+  overflow: visible;
+}
+
+.custom-file-input{
+	margin: 10px 0 25px 32%;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+	color: #fff;
+  content: 'Selecciona su imagen';
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #00BCD4;
+  border-radius: 3px;
+  padding: 10px 12px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10pt;
+}
+.custom-file-input:hover::before {
+  border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, transparent, #00BCD4);
+}
+
+@media (max-height: 605px) {
+  h2{
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+  
+  .form-box{
+	width: 600px;
+	height: 650px;
+  }
+  
+  .inputbox{
+	position: relative;
+	margin: 15px 0;
+	width: 500px;
+	border-bottom: 2px solid #fff;
+  }
+}
