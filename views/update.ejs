@@ -19,29 +19,37 @@
         <form id="login_form" class="login_form" action="/update/<%=modelo.producto_id%>" method="post">
           <h2>Actualizar Producto</h2>
           <div class="inputbox">
-            <input type="text" name="nombre" autofocus required autocomplete="true">
+            <input type="text" name="nombre" autofocus required autocomplete="true" value="<%= modelo.nombre%>">
             <label for="nombre">Nombre</label>
           </div>
           <div class="inputbox">
-            <input type="number" name="codigo" required autocomplete="true">
+            <input type="number" name="codigo" required autocomplete="true" value="<%= modelo.codigo%>">
             <label for="codigo">Codigo</label>
           </div>
           <div class="inputbox">
-            <input type="text" name="precio" required autocomplete="true">
+            <input type="text" name="precio" required autocomplete="true" value="<%= modelo.precio%>">
             <label for="precio">Precio</label>
           </div>
           <div class="inputbox">
-            <input type="text" name="descripcion" required autocomplete="true">
+            <input type="text" name="descripcion" required autocomplete="true" value="<%= modelo.descripcion%>">
             <label for="descripcion">Descripcion</label>
           </div>
           <div class="inputbox">
-            <input type="text" name="calidad" required autocomplete="true">
+            <input type="text" name="calidad" required autocomplete="true" value="<%= modelo.calidad%>">
             <label for="calidad">Calidad</label>
           </div>
           <div class="inputbox">
-            <input type="text" name="cantidad" required autocomplete="true">
+            <input type="text" name="cantidad" required autocomplete="true" value="<%= modelo.cantidad%>">
             <label for="cantidad">Cantidad</label>
           </div>
+
+          <div class="inputbox">
+    
+            <label for="categoria">Categoria</label>
+            <input type="number" name="categoria" value="<%= modelo.categoria_id%>">
+
+          </div>
+          
           <div class="error hidden">
             <p>Error al iniciar sesion</p>
           </div>
