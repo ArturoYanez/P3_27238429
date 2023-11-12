@@ -1,13 +1,51 @@
 //Librerias y dependencias
 require('dotenv').config();
+const multer = require('multer');
 const http = require('http');
 const express = require('express');
 const app = express();
 const path = require('path');
+const bodyParser= require('body-parser');
+app.use(bodyParser.urlencoded({extended: true}));
 const baseDatosModels = require('./models/database.js');
 const {PASSWORD,ADMIN} = process.env;
 let login= false;
+let ext;
 
+//Randis Graterol
+
+function getContentType(extname) {
+  switch (extname) {
+    case '.html':
+      return '.html';
+    case '.css':
+      return '.css';
+    case '.js':
+      return '.js';
+    case '.json':
+      return '.json';
+    case '.png':
+      return '.png';
+    case '.jpg':
+      return '.jpg';
+    case 'jpeg':
+      return '.jpeg';
+    default:
+      return null;
+  }
+}
+
+let storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './static/uploads')
+  },
+  filename: function (req, file, cb) {
+    ext = path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + Date.now() + getContentType(ext))
+  }
+})
+
+let upload = multer({ storage: storage });
 //recursos que se van a cargar en el server 
 app.use(express.static(__dirname+'/static'));
 
@@ -55,7 +93,7 @@ app.get('/addImagen',(req,res)=>{
 res.render('addImagen.ejs');
 });
 
-app.post('/addImagen',(req,res)=>{
+app.post('/addImagen',upload.single('img'),(req,res)=>{
 baseDatosModels.aggIMG(req,res);
 });
 

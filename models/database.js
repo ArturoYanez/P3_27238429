@@ -44,12 +44,12 @@ db.run(`
 });
 
 function aggDato(req,res){
-const {nombre,codigo,precio,descripcion,calidad,cantidad} = req.body;
+const {nombre,codigo,precio,descripcion,calidad,cantidad,categoria} = req.body;
     
-const sql = `INSERT INTO productos(nombre, codigo, precio, descripcion, calidad, cantidad) 
-    VALUES (?, ?, ?, ?, ?, ?)`;
+const sql = `INSERT INTO productos(nombre, codigo, precio, descripcion, calidad, cantidad,categoria_id) 
+    VALUES (?, ?, ?, ?, ?, ? , ?)`;
 
-db.run(sql, [nombre, codigo, precio, descripcion, calidad, cantidad], err => {
+db.run(sql, [nombre, codigo, precio, descripcion, calidad, cantidad,categoria], err => {
     if (err) return console.error(err.message);
     console.log('Registros Ingresados Correctamente a la base de datos ');
     res.redirect('/productos');
@@ -80,11 +80,11 @@ function mostrarUpdate(req,res){
 function update(req,res){
   const id = req.params.id;
 
-  const {nombre,codigo,precio,descripcion,calidad,cantidad} = req.body;
+  const {nombre,codigo,precio,descripcion,calidad,cantidad,categoria} = req.body;
   
-  const sql = `UPDATE productos SET nombre = ?, codigo = ?, precio = ?, descripcion = ?, calidad = ?, cantidad = ? WHERE producto_id = ?`;
+  const sql = `UPDATE productos SET nombre = ?, codigo = ?, precio = ?, descripcion = ?, calidad = ?, cantidad = ? , categoria_id = ? WHERE producto_id = ?`;
 
-  db.run(sql, [nombre,codigo, precio,descripcion,calidad, cantidad,id], err => {
+  db.run(sql, [nombre,codigo, precio,descripcion,calidad, cantidad,categoria,id], err => {
   if (err) return console.error(err.message);
   console.log(`producto actualizado = Producto : ${id}`);
   res.redirect('/productos');
@@ -122,12 +122,15 @@ function deletee(req,res){
 
 //_-------------------------------------------------
 function aggIMG(req,res){
-const {destacado,img} = req.body;
-
+  console.log(req.file);
+let ruta = req.file.path.split('\\');
+const file = `/${ruta[1]}/${ruta[2]}`;
+console.log(file);
+const {destacado} = req.body;
 const sql = `INSERT INTO imagenes(url,destacado) 
     VALUES (?,?)`;
 
-db.run(sql, [img,destacado], err => {
+db.run(sql, [file,destacado], err => {
     if (err) return console.error(err.message);
     console.log('URL de imagen Insertada Correctamente');
     res.redirect('/productos');

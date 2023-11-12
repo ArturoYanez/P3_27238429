@@ -34,6 +34,7 @@
             <th>Descripcion</th>
             <th>Calidad</th>
             <th>Cantidad</th>
+            <th>Categoria</th>
             <th><a href="/add"><img src="/img/add.png" id='add'></a></th>
           </tr>
           <%for(const producto of modelo){%>
@@ -45,6 +46,7 @@
               <td><%=producto.descripcion%></td>
               <td><%=producto.calidad%></td>
               <td><%=producto.cantidad%></td>
+              <td><%=producto.categoria_id%></td>
               <td class="icon">
               <a href="/update/<%= producto.producto_id%>"><img src="/img/update.png" width="30"></a>
               <a href="/delete/<%= producto.producto_id%>"><img src="/img/delete.png" width="30" id="delete"></a>
