@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta charset="iso-8559-1"/>
+  <meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
+  <meta name="keywords" content="html5,javascript,diseño web"/>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <title>Resultados</title>
+  <!-- Favicon-->
+  <link rel="icon" href="img/favicon.png">
+  <!-- Font Awesome icons (free version)-->
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" href="/css/footer.css">
+  <link rel="icon" href="img/favicon.png">
+</head>
+<body id="page-top">
+  <header class="header-content">
+    <nav class="navbar">
+      <h1 class="namepage">Namepage</h1>
+      <div class="asc">
+        <input class="form-control" id="buscarPrincipal" type="search" placeholder="Buscar" aria-label="Buscar Producto..."/>
+        <button onclick="buscarProductos()"  id='boton3' class="search-button">Buscar</button>
+      </div>
+      <div class="links-box">
+        <a href="/clientes">Volver</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Navigation-->
+  <div class="central-box">
+
+    <div id='galeriaImagenes'>
+
+    </div>
+
+    <div id='otroResultado' class='product_detail_box'>
+      <img src="<%= result.url %>" class='imgC'>
+      <br>
+      <div class="details-box">
+        <p style='font-size: 20px;'><span style='font-weight:bold;font-size:25px;'>Nombre:</span> <%= result.nombre %></p> 
+        <p style='font-size: 20px;'><span style='font-weight:bold;font-size:20px;'>Codigo:</span> <%= result.codigo %></p>
+        <p style='font-size: 20px;'><span style='font-weight:bold;font-size:20px;'>Precio:</span> <span style='color:green'><%= result.precio %> $</span></p>
+        <!--Randy estuvo aqui-->
+        <p style='font-size: 20px;'><span style='font-weight:bold;font-size:20px;'>Descripcion:</span> <%= result.descripcion %></p>
+        <p style='font-size: 20px;'><span style='font-weight:bold;font-size:20px;'>Calidad:</span> <%= result.calidad %></p>
+        <p style='font-size: 20px;'><span style='font-weight:bold;font-size:20px;'>Cantidad:</span> <%= result.cantidad %></p> 
+        <div class="products-button">
+          <a href="#">Comprar</a>
+          <a href="/clientes" class="volver">Volver</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include('footer') -%>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+  <script type="text/javascript">
+
+    function buscarProductos(){
+      const searchInput = document.getElementById('buscarPrincipal');
+      const valorBusqueda = searchInput.value.trim();
+      let galeriaImagenesBusqueda = document.getElementById('galeriaImagenes'); 
+      console.log(valorBusqueda,'dato del query');
+
+   // Elimina el último hijo de galeriaImagenesBusqueda, si existe
+      const ultimoHijo = galeriaImagenesBusqueda.lastElementChild;
+      if (ultimoHijo){
+        galeriaImagenesBusqueda.removeChild(ultimoHijo);
+      }
+      let otroResultado = document.getElementById('otroResultado');
+      otroResultado.style='display:none';
+
+     // Realiza la solicitud al servidor
+      fetch(`/clientico?busqueda=${valorBusqueda}`)
+      .then(response => response.json())
+      .then(data => {
+
+        if(data && data.producto.length > 0){
+         let otroResultado = document.getElementById('otroResultado');
+         otroResultado.style='display:none';
+         let fragmento= document.createDocumentFragment();
+         let img = document.createElement("img");
+         let nombre = document.createElement('P');
+         let precio = document.createElement('P');
+         let codigo = document.createElement('P');
+         let descripcion = document.createElement('P');
+         let calidad = document.createElement('P');
+         let cantidad = document.createElement('P');
+         let div = document.createElement('DIV');
+         let div2 = document.createElement('DIV');
+         div2.style='display:flex;flex-direction:column;justify-content:center;aling-item:center;margin-left:30px';
+         div.style='display:flex;justify-content:center;aling-item:center;margin-top:40px;width:100%';
+         div.classList.add('clase');
+         nombre.innerHTML=`<span class='etiquetaP'>Nombre :</span> ${data.producto[0].nombre}`;
+         precio.innerHTML=`<span class='etiquetaP'>Precio :</span> <span style='color:green'>${data.producto[0].precio} $</span>`;
+
+         codigo.innerHTML=`<span class='etiquetaP'>Codigo :</span> <span>${data.producto[0].codigo} </span>`;
+
+         descripcion.innerHTML=`<span class='etiquetaP'>Descricion :</span> <span>${data.producto[0].descripcion} </span>`;
+
+         calidad.innerHTML=`<span class='etiquetaP'>Calidad:</span> <span>${data.producto[0].calidad} </span>`;
+
+         cantidad.innerHTML=`<span class='etiquetaP'>Cantidad :</span> <span>${data.producto[0].cantidad} </span>`;
+
+         nombre.style='margin-top:30px';
+         img.src=data.producto[0].url;
+         img.classList.add('claseIMG');
+         div2.append(nombre);
+         div2.append(precio);
+         div2.append(codigo);
+         div2.append(descripcion);
+         div2.append(calidad);
+         div2.append(cantidad);
+         div.append(img);
+         div.append(div2);
+         fragmento.append(div);
+         galeriaImagenesBusqueda.append(fragmento);
+      // Muestra los resultados en la página  
+
+       }else{
+
+
+        // No se encontraron resultados, muestra un mensaje
+        let mensaje = document.createElement('P');
+        mensaje.style='color:red;font:30px "fuenteC";width:30%;margin:50px auto';
+        mensaje.innerHTML = 'No se encontraron resultados';
+        galeriaImagenesBusqueda.appendChild(mensaje);
+
+
+      }
+
+    })
+      .catch(error => {
+        console.error(error.message);
+      });
+    }
+
+  </script>
+</body>
+</html>

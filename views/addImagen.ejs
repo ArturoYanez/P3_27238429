@@ -1,31 +1,34 @@
 <head>
-  <meta charset="utf-8">
-  <meta charset="iso-8559-1"/>
-  <meta name= "description" content="Página para la venta de productos relacionados con la perdida de peso."/>
-  <meta name="keywords" content="html5,javascript,diseño web, salud, perdida de peso, peso, salud, bienestar, ejercicio, vida saludable"/>
-  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-  <link rel="icon" href="img/favicon.png">
-  <link rel="stylesheet" type="text/css" href="css/update.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <title>Agregar imagén</title>
+	<meta charset="utf-8">
+	<meta charset="iso-8559-1"/>
+	<meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
+	<meta name="keywords" content="html5,javascript,diseño web"/>
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<link rel="icon" href="img/favicon.png">
+	<link rel="stylesheet" type="text/css" href="/css/update.css">
+	<link rel="stylesheet" href="/css/footer.css">
+	<title>Agregar imagén</title>
 </head>
 <body>
-  
-  <section>
+	
+	<section>
 		<div class="form-box">
 			<div class="form-value">
-				<form id="login_form" class="login_form" action="/addImagen" method="post" enctype="multipart/form-data">
+				<form id="login_form" class="login_form" action="/addImagen/<%=modelo.producto_id%>" method="post" enctype="multipart/form-data">
 					<h2>Agregar Imagen</h2>
-                    <input type="file" name="img" id="img" placeholder="Imagen" class="custom-file-input">
-                    <div class="inputbox">
-                      <input type="text" name="destacado" autocomplete="true" id="destacado">
-                      <label for="descripcion">Destacado</label>
+					<input type="file" name="img" id="img" placeholder="Imagen" class="custom-file-input">
+					<div class="inputbox">
+						<select id='destacado' name='destacado' required>
+							<option value="1">Destacado - max 1</option>
+							<option value="0">No destacar</option>
+						</select>
+						<label for="descripcion">Destacado</label>
 					</div>
 					<div class="error hidden">
 						<p>Error al iniciar sesion</p>
 					</div>
 					<input type="submit" value="agg Imagen" id="sendImg">
-                    <a href="/productos" class="boton">Volver</a>
+					<a href="/productos" class="boton">Volver</a>
 				</form>
 			</div>
 		</div>

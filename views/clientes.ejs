@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta charset="iso-8559-1"/>
+	<meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
+	<meta name="keywords" content="html5,javascript,diseño web"/>
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" href="/css/footer.css">
+	<link rel="icon" href="img/favicon.png">
+	<script src="/js/script.js" defer></script>
+	<title>Productos</title>
+</head>
+
+<header class="header-content">
+	<nav class="navbar">
+		<h1 class="namepage">Namepage</h1>
+		<div class="asc">
+			<input class="form-control" id="buscarPrincipal" type="search" placeholder="Buscar" aria-label="Buscar Producto..."/>
+			<button onclick="buscarProductos()"  id='boton3' class="search-button">Buscar</button>
+		</div>
+		<div class="links-box">
+			<a href="/">Inicio</a>
+			<a href="#botonCuadricula">Productos</a>
+			<a href="/clientes">Clientes</a>
+			<a href="/login" class="login">Login</a>
+		</div>
+	</nav>
+</header>
+
+<body>
+	<div class="products-container">
+		<h2 class="products-subtitle">productos</h2>
+		<button id='botonCuadricula' style='background:transparent;margin-left:5%;border:none;margin-bottom:20px; cursor: pointer;' onClick="cuadricula()"><img src="/img/lista.png" width="40px" class='botonC'></button>
+		<div class="products-list-box">
+			<%for(let x = 0;x < producto.length;x++){%>
+			<div class="product_item">
+				<div class="product-image-box">
+					<img src="<%= producto[x].imagen_url %>" id='imagenSelector' class="products-img">
+				</div>
+				<h2 class="products-name"><b class="letter-bolder">Nombre:</b> <%= producto[x].nombre %></h2>
+				<p class="products-price"><b class="letter-bolder">Precio:</b> <%= producto[x].precio %></p>
+				<div class="products-button">
+					<a href="#">Comprar</a>
+					<a href="/detalles/<%=producto[x].producto_id%>">Ver</a>
+				</div>
+			</div>
+			<% } %>
+		</div>
+		<!-------------------->
+		<table class='products-table showTable'>
+
+			<thead>
+				<tr style='border:1px solid black'>
+
+					<th class='column'>Imagen</th>
+					<th class='column'>Nombre</th>
+					<th class='column'>Codigo</th>
+					<th class='column'>Precio</th>
+					<th class='column'>Descripcion</th>
+					<th class='column'>Calidad</th>
+					<th class='column'>Cantidad</th>
+					<th class='column'>Categoria</th>
+					<th class='column'>Opciones</th>
+
+				</tr>
+			</thead>
+
+			<tbody>
+				<%for(let u = 0;u < producto.length;u++){%>
+				<tr class='tr' style='border:1px solid black'><!--ul-->
+					<!--li-->
+					<td class='column'><img src="<%= producto[u].imagen_url %>" style='width:100%;height:17vh'></td>
+					<td class='column'><%= producto[u].nombre %></td>
+					<td class='column'><%= producto[u].codigo %></td>
+					<td class='column'><%= producto[u].precio %></td>
+					<td class='column'><%= producto[u].descripcion %></td>
+					<td class='column'><%= producto[u].calidad %></td>
+					<td class='column'><%= producto[u].cantidad %></td>
+					<td class='column'><%= producto[u].categoria_id %></td>
+					<td>
+						<a href="#imagenSelector">
+							<img src="/img/buy.png" class="w-icon">
+						</a>
+						<a href="/detalles/<%=producto[u].producto_id%>" style='margin-top:7px;margin-left:8px;'><img src="/img/ojo.png" class="w-icon"></a>
+					</td>
+				</tr> 
+				<% } %>
+			</tbody>
+		</table>
+	</div>
+</div>
+<%- include('footer') -%>
+</body>
+</html>

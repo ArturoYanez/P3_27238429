@@ -2,7 +2,11 @@
 <html lang="es">
 <head>
 
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
+  <meta charset="iso-8559-1"/>
+  <meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
+  <meta name="keywords" content="html5,javascript,diseño web"/>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
   <title>categoriass</title>
   <link rel="stylesheet" href="/css/footer.css">
   <link rel="stylesheet" type="text/css" href="/css/products.css">
@@ -22,24 +26,25 @@
   
   <div class="table">
     <table>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th><a href="/addCategorias"><img src="/img/add.png" id='add'></a></th>
-          </tr>
-          <%for(const categorias of modelo){%>
-            <tr>
-              <td><%=categorias.id%></td>
-              <td><%=categorias.nombre%></td>
-              <td class="icon">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th><a href="/addCategorias"><img src="/img/add.png" id='add'></a></th>
+      </tr>
+      <%for(const categorias of modelo){%>
+      <tr>
+        <td><%=categorias.id%></td>
+        <td><%=categorias.nombre%></td>
+        <td class="icon">
 
-              <a href="/updateCategoria/<%=categorias.id%>"><img src="/img/update.png" width="30"></a>
+          <a href="/updateCategoria/<%=categorias.id%>"><img src="/img/update.png" width="30"></a>
+          <a href="/eliminarCategoria/<%=categorias.id%>"><img src="/img/delete.png" width="30"></a>
 
-             </td>
-            </tr>
-           <%}%>
-        </table>
-       
+        </td>
+      </tr>
+      <%}%>
+    </table>
+    
   </div>
 </body>
 </html>

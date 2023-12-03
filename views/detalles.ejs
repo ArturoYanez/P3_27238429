@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta charset="iso-8559-1"/>
+	<meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
+	<meta name="keywords" content="html5,javascript,diseño web"/>
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" href="/css/footer.css">
+	<link rel="icon" href="img/favicon.png">
+	<script src="/js/script.js" defer></script>
+	<title>Detalles</title>
+</head>
+<body class="details-background">
+	<header class="details-header">
+		<nav class="navbar">
+			<h1 class="namepage">Namepage</h1>
+			<div class="asc">
+				<input class="form-control" id="buscarPrincipal" type="search" placeholder="Buscar" aria-label="Buscar Producto..."/>
+				<button onclick="buscarProductos()"  id='boton3' class="search-button">Buscar</button>
+			</div>
+			<div class="links-box">
+				<a href="/">Inicio</a>
+				<a href="/productos">Productos</a>
+				<a href="/categorias">Categorias</a>
+				<a href="/clientes">Clientes</a>
+				<a href="/login" class="login">Login</a>
+			</div>
+		</nav>
+	</header>
+	<h1 class="products-subtitle">Detalles</h1>
+
+	<div id='contenedor' class="details-container">
+		<% for(let m = 0;m < imagenes.length;m++){ %>
+		<div class="item-detail-box">
+			<img src="<%= imagenes[m].url%>">
+			<div style='display:flex;flex-direction: column;justify-content: center;align-items: center;'>
+				<p><strong>Nombre :</strong><%= imagenes[m].nombre%></p>
+				<p><strong>Codigo :</strong><%= imagenes[m].codigo%></p>
+				<p><strong>Precio :</strong><span style='color:green'><%= imagenes[m].precio%>$</span></p>
+				<p><strong>Descripcion :</strong><%= imagenes[m].descripcion%></p>
+				<p><strong>Calidad :</strong><%= imagenes[m].calidad%></p>
+				<p><strong>Cantidad :</strong><%= imagenes[m].cantidad%></p>
+				<p><strong>Categoria :</strong><%= imagenes[m].categoria_id%></p>
+			</div>
+		</div>
+		<% } %>
+	</div>
+			<div class="products-button">
+        <a href="/clientes" class="volver">Volver</a>
+      </div>
+	<%- include('footer') -%>
+</body>
+</html>
