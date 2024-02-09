@@ -96,12 +96,15 @@ input:valid ~ label{
 	top: 20px;
 }
 
-.error{
-	color: #ff0000;
-	font-weight: bolder;
-	text-transform: uppercase;
-	margin: -15px 0px 20px;
+.registerInvite{
+	color: #ffffff;
+	max-width: 250px;
+	margin: 15px auto;
 	text-align: center;
+}
+
+.registerInvite a{
+	color: #88BCD4;
 }
 
 .hidden{

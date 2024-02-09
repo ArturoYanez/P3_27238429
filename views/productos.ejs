@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta charset="iso-8559-1"/>
-  <meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
-  <meta name="keywords" content="html5,javascript,diseño web"/>
-  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-  <link rel="icon" href="img/favicon.png">
-  <link rel="stylesheet" type="text/css" href="/css/products.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <title>Productos</title>
+    <meta charset="utf-8">
+    <meta charset="iso-8559-1"/>
+    <meta name= "description" content="pagina de enseñanza"/>
+    <meta name="keywords" content="html5,javascript,diseño web"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/css/products.css">
+    <link rel="stylesheet" href="/css/footer.css">
+   <title>Productos</title>
 </head>
 <body>
   
@@ -26,38 +26,36 @@
 
   <div class="table">
     <table>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Codigo</th>
-        <th>Precio</th>
-        <th>Descripcion</th>
-        <th>Calidad</th>
-        <th>Cantidad</th>
-        <th>Categoria</th>
-        <th><a href="/add"><img src="/img/add.png" id='add'></a></th>
-      </tr>
-      <%for(const producto of modelo){%>
-      <tr>
-        <td><%=producto.producto_id%></td>
-        <td><%=producto.nombre%></td>
-        <td><%=producto.codigo%></td>
-        <td><%=producto.precio%></td>
-        <td><%=producto.descripcion%></td>
-        <td><%=producto.calidad%></td>
-        <td><%=producto.cantidad%></td>
-        <td><%=producto.categoria_id%></td>
-        <td class="icon">
-          <a href="/update/<%= producto.producto_id%>"><img src="/img/update.png" width="30"></a>
-          <a href="/delete/<%= producto.producto_id%>"><img src="/img/delete.png" width="30" id="delete"></a>
-          <a href="/addImagen/<%= producto.producto_id%>">
-            <img src="/img/dropdown-icon.png" width="32px" alt="Subir imagen" title="Subir una imagen">
-          </a>
-        </td>
-      </tr>
-      <%}%>
-    </table>
-    
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Codigo</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <th>Calidad</th>
+            <th>Cantidad</th>
+            <th><a href="/add"><img src="/img/add.png" id='add'></a></th>
+          </tr>
+          <%for(const producto of modelo){%>
+            <tr>
+              <td><%=producto.producto_id%></td>
+              <td><%=producto.nombre%></td>
+              <td><%=producto.codigo%></td>
+              <td><%=producto.precio%></td>
+              <td><%=producto.descripcion%></td>
+              <td><%=producto.tipo%></td>
+              <td><%=producto.cantidad%></td>
+              <td class="icon">
+              <a href="/update/<%= producto.producto_id%>"><img src="/img/update.png" width="30"></a>
+              <a href="/delete/<%= producto.producto_id%>"><img src="/img/delete.png" width="30" id="delete"></a>
+              <a href="/addImagen">
+                <img src="/img/dropdown-icon.svg" alt="Subir imagen" title="Subir una imagen">
+              </a>
+             </td>
+            </tr>
+           <%}%>
+        </table>
+       
   </div>
 </body>
 </html>
