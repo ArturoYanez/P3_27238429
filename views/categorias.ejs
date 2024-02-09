@@ -2,49 +2,42 @@
 <html lang="es">
 <head>
 
-  <meta charset="utf-8">
-  <meta charset="iso-8559-1"/>
-  <meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
-  <meta name="keywords" content="html5,javascript,diseño web"/>
-  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <meta charset="UTF-8">
   <title>categoriass</title>
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="stylesheet" type="text/css" href="/css/products.css">
+  <link rel="stylesheet" type="text/css" href="/css/producto.css">
   
 </head>
 <body>
-  <header class="header-content">
-    <nav class="navbar">
-      <h1 class="namepage">Namepage</h1>
-      <div class="links-box">
-        <a href="/">Inicio</a>
-        <a href="/productos">Productos</a>
-        <a href="/categorias">Categorias</a>
-      </div>
-    </nav>
-  </header>
-  
+
+  <div id='botones'>
+    <a href="/logout2" style='color:white'>Cerrar</a>
+    <a href="/usuarios">Users</a>
+    <a href="/compras">Compras</a>
+    <a href="/productos">Productos</a>
+    <a href='/categorias' id='botonProductos'>Categorias</a> 
+  </div>
+
+  <h1><span>Categorias</span>  <%=modelo.length%></h1>
   <div class="table">
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th><a href="/addCategorias"><img src="/img/add.png" id='add'></a></th>
-      </tr>
-      <%for(const categorias of modelo){%>
-      <tr>
-        <td><%=categorias.id%></td>
-        <td><%=categorias.nombre%></td>
-        <td class="icon">
+    <table border>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th><a href="/addCategorias"><img src="/icon/add.png" id='add'></a></th>
+          </tr>
+          <%for(const categorias of modelo){%>
+            <tr>
+              <td><%=categorias.id%></td>
+              <td><%=categorias.nombre%></td>
+              <td class="icon">
 
-          <a href="/updateCategoria/<%=categorias.id%>"><img src="/img/update.png" width="30"></a>
-          <a href="/eliminarCategoria/<%=categorias.id%>"><img src="/img/delete.png" width="30"></a>
-
-        </td>
-      </tr>
-      <%}%>
-    </table>
-    
+              <a href="/updateCategoria/<%=categorias.id%>"><img src="/icon/update.png" width="30"></a>
+              <a href="/eliminarCategoria/<%=categorias.id%>"><img src="/icon/delete.png" width="30"></a>
+             </td>
+            </tr>
+           <%}%>
+        </table>
+       
   </div>
 </body>
 </html>

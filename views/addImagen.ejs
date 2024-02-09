@@ -1,37 +1,106 @@
+<!DOCTYPE html>
+<html>
 <head>
 	<meta charset="utf-8">
-	<meta charset="iso-8559-1"/>
-	<meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
-	<meta name="keywords" content="html5,javascript,diseño web"/>
-	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-	<link rel="icon" href="img/favicon.png">
-	<link rel="stylesheet" type="text/css" href="/css/update.css">
-	<link rel="stylesheet" href="/css/footer.css">
-	<title>Agregar imagén</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Imagen</title>
+
+	<style type="text/css">
+
+@font-face{
+          font-family:'dar';
+          src:url('/fuentes/GnarlyBoneBlack_PERSONAL_USE_ONLY.otf');
+        }
+		body{
+	background-image:url('https://images.unsplash.com/photo-1598522017610-edbea54edd64?auto=format&fit=crop&q=80&w=1036&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	background-size:cover;
+	background-attachment: fixed;
+    }
+    form{
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: center;
+    	align-items: center;
+    	margin:80px auto;
+    	width:40%;
+    	border:1px solid black;
+    }
+    input{
+    	padding:10px;
+    	margin:10px;
+    }
+    label{
+    	font:30px 'dar' ;
+    	font-weight: bold;
+    	color:white;
+    }
+   h1{
+   	font:40px 'dar' ;
+   	text-align: center;
+   	line-height: 50px;
+   	color:white;
+   }
+   #destacado{
+   	width:20%;
+   	border-radius:10px 10px 10px 10px;
+   }
+  #divDestacado{
+  	border:1px solid black;
+  	width:70%;
+  	margin:50px auto;
+  	background:rgba(108, 114, 114,.7);
+  }
+  #botones{
+	display:flex;
+	justify-content: flex-end;
+	align-items: center;
+	 border:1px solid white;
+	 background:rgba(0,0,0,.7);
+	 border-top:none;
+	 border-left:none;
+	 border-right:none;
+}
+  #botones a{
+	border-radius:15px 10px 20px 10px;
+	font:30px 'dar';
+	padding:20px;
+	text-decoration: none;
+	color:white;
+	transition: all 1s;
+}
+#botones a:hover{
+transform: translateY(-10px);
+}
+
+	</style>
+
+
 </head>
 <body>
+
+<div id='botones'>
+	<a href='/productos'>Volver</a>
+</div>
+
+<h1>Agregar Imagen</h1>
+
+<div id='divDestacado'>
 	
-	<section>
-		<div class="form-box">
-			<div class="form-value">
-				<form id="login_form" class="login_form" action="/addImagen/<%=modelo.producto_id%>" method="post" enctype="multipart/form-data">
-					<h2>Agregar Imagen</h2>
-					<input type="file" name="img" id="img" placeholder="Imagen" class="custom-file-input">
-					<div class="inputbox">
-						<select id='destacado' name='destacado' required>
-							<option value="1">Destacado - max 1</option>
-							<option value="0">No destacar</option>
-						</select>
-						<label for="descripcion">Destacado</label>
-					</div>
-					<div class="error hidden">
-						<p>Error al iniciar sesion</p>
-					</div>
-					<input type="submit" value="agg Imagen" id="sendImg">
-					<a href="/productos" class="boton">Volver</a>
-				</form>
-			</div>
-		</div>
-	</section>
+<form action="/addImagen/<%=modelo.producto_id%>" method="post" enctype="multipart/form-data">
+	
+	<label for='imagen'>Imagen</label>
+	
+	<input type="file" name="img" id="img" placeholder="Imagen">
+  
+	<label for="destacado">Destacado</label>
+	<select id='destacado' name='destacado'>
+  	<option value='1'>principal</option>
+  	<option value='0'>No principal</option>
+  </select>
+
+	<input type="submit" value="add" id="destacado">
+</form>
+</div>
+
 </body>
 </html>

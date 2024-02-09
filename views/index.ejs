@@ -1,58 +1,80 @@
-
-<!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
   <meta charset="utf-8">
   <meta charset="iso-8559-1"/>
-  <meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
+  <meta name= "description" content="pagina de enseñanza"/>
   <meta name="keywords" content="html5,javascript,diseño web"/>
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/icon/ico.png" />
   <link rel="stylesheet" type="text/css" href="/css/style.css">
-  <link rel="stylesheet" href="/css/footer.css">
-  <link rel="icon" href="https://www.flaticon.es/iconos-gratis/limpieza">
-  <title>Inicio</title>
-</head>
-<body>
+    <title>Portafolio</title>
   
-  <header class="header-content">
-    <nav class="navbar">
-      <h1 class="namepage">Namepage</h1>
-      <div class="links-box">
-        <a href="/">Inicio</a>
-        <a href="/clientes">Clientes</a>
-        <a href="/login" class="login">Login</a>
-      </div>
-    </nav>
+  </head>
+  <body>
 
-    <section class="banner-info">
-      <h2>Conoce nuestros productos</h2>
-      <p>Lorem, ipsum dolor sit amet consectetur, adipisicing elit. Ducimus temporibus mollitia impedit possimus.</p>
-      <a href="#" class="banner-button">Ir aqui</a>
-    </section>
-  </header>
+   <div id='botones'>
+   
+      <a href="/login" id='admin'>Admin</a>
+      <a href="/loginUsers" id='admin'>Cliente</a>
+   </div>
+  <!--*****************************************-->
+  <h1>Pagina de Inicio</h1>
+  
+  <div id="grid-container">
 
-  <main class="main-content">
-    <section class="autor-info">
-      <div class="autor-info-box">
-        <h2>ArturoYanez</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, in earum aliquam quia, incidunt hic voluptatibus voluptas laudantium, error, sapiente illo nemo nobis explicabo! Ab repudiandae tenetur sint blanditiis, dignissimos.</p>
-        <a href="#" class="banner-button">Ir aqui</a>
-      </div>
-      <div class="autor-image">
-        <img src="/img/autorImage.jpg" alt="Vector de autor">
-      </div>
-    </section>
+   <div id="container-img-icon">
+   <img src="/img/anonimous.png" id="imggg">
 
-    <section class="products-info">
-      <span class="products-info-content">
-        <h2 class="products-info-title">Lo que hacemos</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, esse.</p>
-      </span>
-    </section>
+   </div>
+   <!--***************************************************************-->
+  <fieldset id="fieldset1" class="ubicar-F ubicar1">
+    <legend id="legend1" class="legenddd">Acerca de mi</legend>
+    <div id="centrarDiv">
+    <h2>Randis graterol</h2>
+     <ul id='datos'>
+       <li>CI: 28.012.667</li>
+       <li>Sección: 1</li>
+     </ul>
+    </div>
+  </fieldset>
+  <!--*****************************************-->
+  
+  <!--*****************************************-->
+  </div>
 
-  </main>
-  <%- include('footer') -%>
+   
+  <!--*****************************************-->
+  <script type="text/javascript"> 
+   let legend= document.querySelectorAll(".legenddd");
+//------------------------------------------------------------------
+let ubicar1= document.querySelector(".ubicar1");
+let ubicar2= document.querySelector(".ubicar2");
+let ubicar3= document.querySelector(".ubicar3");
+let ubicar4= document.querySelector(".ubicar4");
+let ubicar5= document.querySelector(".ubicar5");
+let ubicar6= document.querySelector(".ubicar6");
+/////////////////////////////////////////////////////////
+legend.forEach((elemento,index)=>{
+elemento.addEventListener("click",(e)=>{
+  elemento.classList.toggle("color");
 
-</body>
-
+  if(e.target.id=="legend1"){
+    ubicar1.classList.toggle("reducir_aumentar");
+  }else if(e.target.id=="legend2"){
+    ubicar2.classList.toggle("reducir_aumentar");
+  }else if(e.target.id=="legend3"){
+    ubicar3.classList.toggle("reducir_aumentar");
+  }else if(e.target.id=="legend4"){
+    ubicar4.classList.toggle("reducir_aumentar");
+  }else if(e.target.id=="legend5"){
+    ubicar5.classList.toggle("reducir_aumentar");
+  }else{
+    ubicar6.classList.toggle("reducir_aumentar");
+  }  
+})
+})
+  //toggle
+ //-----------------------------------------------------
+  </script>
+  </body>
 </html>

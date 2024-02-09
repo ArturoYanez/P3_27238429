@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Users</title>
+  <link rel="icon" type="image/x-icon" href="/icon/ico.png" />
+  <link rel="stylesheet" type="text/css" href="/css/producto.css">
+</head>
+<body>
+  <div id='botones'>
+    <a href="/logout2" style='color:white'>Cerrar</a>
+    <a href="/usuarios">Users</a>
+    <a href="/compras">Compras</a>
+    <a href="/productos">Productos</a>
+    <a href='/categorias' id='botonProductos'>Categorias</a> 
+  </div>
+  <h1><span>Usuarios</span><%= modelo.length%></h1>
+  <div class="table">
+    
+    <table>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cedula</th>
+            <th>Correo</th>
+            <th>Password</th>
+            <th><a href="/addUser"><img src="/icon/add.png" id='add'></a></th>
+          </tr>
+          <%for(const usuario of modelo){%>
+            <tr>
+              <td><%=usuario.id%></td>
+              <td><%=usuario.nombre%></td>
+              <td><%=usuario.apellido%></td>
+              <td><%=usuario.cedula%></td>
+              <td><%=usuario.correo%></td>
+              <td><%=usuario.password%></td>
+              <td class="icon">
+              <a href="/updateUser/<%= usuario.id%>"><img src="/icon/update.png" width="30"></a>
+              <a href="/deleteUser/<%= usuario.id%>"><img src="/icon/delete.png" width="30" id="delete"></a>
+             </td>
+            </tr>
+           <%}%>
+        </table>
+       
+  </div>
+
+</body>
+</html>

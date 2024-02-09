@@ -1,0 +1,73 @@
+@font-face{
+          font-family:'dar';
+          src:url('/fuentes/GnarlyBoneBlack_PERSONAL_USE_ONLY.otf');
+        }
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+}
+
+body{
+background-image:url('https://images.unsplash.com/photo-1574675904801-eb2cca16af12?auto=format&fit=crop&q=80&w=1288&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+background-size:cover;
+background-attachment:fixed;
+}
+.table{
+margin:50px auto;
+width:98%;
+background:rgb(0,0,0,.7);
+border:1px solid white;
+}
+table{
+ color:white;
+ width:100%;
+ font-size:20px;
+}
+h1{
+	color:white;
+	text-align:center;
+	margin-top:50px;
+	font-size: 75px;
+}
+span{
+	font:50px 'dar';
+
+}
+td{
+	text-align:center;
+}
+
+#add{
+ height:5vh;
+}
+th{
+	padding:20px;
+}
+#botones{
+	display:flex;
+	justify-content: flex-end;
+	align-items: center;
+	 border:1px solid white;
+	 background:rgba(0,0,0,.7);
+	 border-top:none;
+	 border-left:none;
+	 border-right:none;
+}
+#botones a{
+	border-radius:15px 10px 20px 10px;
+	font:23px 'dar';
+	padding:20px;
+	text-decoration: none;
+	color:white;
+	transition: all 1s;
+}
+#botones a:hover{
+transform: translateY(-10px);
+}
+table tr{
+	transition: all 1.4s;
+}
+table tr:hover{
+	background:rgba(135, 215, 233,.5);
+}

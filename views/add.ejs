@@ -1,65 +1,92 @@
 <!DOCTYPE html>
 <html>
+<body>
 <head>
     <meta charset="utf-8">
     <meta charset="iso-8559-1"/>
-    <meta name= "description" content="Tienda online sobre los mejores productos de limpieza del mercado. Proyecto educativo para la Universidad Nacional Experimental Ròmulo Gallegos"/>
+    <meta name= "description" content="pagina de enseñanza"/>
     <meta name="keywords" content="html5,javascript,diseño web"/>
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/update.css">
-    <link rel="stylesheet" href="/css/footer.css">
-   <title>Agregar Producto</title>
+   <title>Update</title>
 </head>
-<body>
-  <section>
-		<div class="form-box">
-			<div class="form-value">
-				<form id="login_form" class="login_form" action="/addPost" method="post">
-					<h2>Agregar Producto</h2>
-					<div class="inputbox">
-						<input type="text" name="nombre" autofocus required autocomplete="true">
-						<label for="nombre">Nombre</label>
-					</div>
-					<div class="inputbox">
-						<input type="number" name="codigo" required autocomplete="true">
-						<label for="codigo">Codigo</label>
-					</div>
-                    <div class="inputbox">
-						<input type="text" name="precio" required autocomplete="true">
-						<label for="precio">Precio</label>
-					</div>
-                    <div class="inputbox">
-						<input type="text" name="descripcion" required autocomplete="true">
-						<label for="descripcion">Descripcion</label>
-					</div>
-                    <div class="inputbox">
-						<input type="text" name="calidad" required autocomplete="true">
-						<label for="calidad">Calidad</label>
-					</div>
-                    <div class="inputbox">
-						<input type="number" name="cantidad" required autocomplete="true">
-						<label for="cantidad">Cantidad</label>
-					</div>
 
-					<div class="inputbox">
+<div id="botones">
+
+    <a href="/productos" id=''>Volver</a>
+
+</div>
+
+ <h1 id="crear">Agregar Producto</h1>
+
+<form action="/addPost" method="post">
+<div class='flex-principal'>
+<!------------------------------------------->
+<div id="editorcentrall">
+
+    <div>
+        
+<label for="nombre">Nombre</label>
+
+<input type="text" autofocus name="nombre" placeholder="Nombre" />
+</div>
+<!------------------------------------------>
+<div>
     
-            <label for="categoria">Categoria</label>
-            <select id='categoria' name='categoria' required>
-            	<option value="2">Categoria 1</option>
-            	<option value="3">Categoria 2</option>
-            </select>
+<label for="codigo">Codigo</label>
 
-          </div>
+<input name="codigo" type="number" placeholder=" Codigo" />
 
-					<div class="error hidden">
-						<p>Error al iniciar sesion</p>
-					</div>
-					<input type="submit" value="Agregar" id="update">
-          <a href="/productos" class="boton">Volver</a>
-				</form>
-			</div>
-		</div>
-	</section>
-<%- include('footer') -%>
+<!--------------------------------------------->
+</div>
+<!------------------------------------------>
+
+<div>
+
+<label for="precio">Precio</label>
+<input type="number" name="precio" placeholder=" Precio">
+
+</div>
+
+<div>
+    
+<label for="descripcion">Descripcion</label>
+<input type="text" name="descripcion" placeholder=" Descripcion">
+</div>
+<!----------------------------------------------------->
+
+<div>
+
+<label for="color">Color</label>
+<input type="text" name="color" placeholder="Color">
+    
+</div>
+<!----------------------------------------------------->
+<div>
+    
+<label for="peso">Peso</label>
+<input type="number" name="peso" placeholder="Peso">
+</div>
+<!----------------------------------------------------->
+<div>
+    
+    <label for="categoria">Categoria</label>
+    <select id='categoria' name='categoria' required>
+        <option value="1">Categoria 1</option>
+        <option value="2">Categoria 2</option>
+        <option value="3">Categoria 3</option>
+    </select>
+</div>
+<!--------------------------------------------------->
+
+<!----------------------------------------------------->
+</div>
+
+<!------------------------------------------->
+
+ <input type="submit" value="Agregar" id='agg'>
+</div>
+</form>
 </body>
+
 </html>

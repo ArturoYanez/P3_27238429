@@ -1,115 +1,77 @@
-/* Global */
 @font-face{
-	font-family:'Raleway';
-	src:url('/fonts/Raleway-VariableFont_wght.ttf');
+          font-family:'dar';
+          src:url('/fuentes/Gamer.ttf');
+        }
+body{
+	background-image:url('https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	background-size:cover;
+	background-attachment: fixed;
 }
-
-*{
-	margin: 0;
-	padding: 0;
-	font-family: "Poppins", sans-serif;
-}
-
-/* General */
-
-section{
-	display: flex;
+#login{
+	display:flex;
+	flex-direction:column;
 	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	width: 100%;
-	background: url('/img/login-background.jpg');
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
+	align-items:center;
+	background:rgb(0,0,0,.3);
+	width:50%;
+	height:auto;
+	margin:100px auto;
+	border-radius:10px 10px 10px 10px;
+	border:1px solid black;
+	transition:all 1s;
 }
-
-h2{
-	font-size: 2em;
-	color: #fff;
-	text-align: center;
+#login:hover{
+	background:rgb(0,0,0,.7);
+	border:1px solid grey;
 }
-
-input[type="submit"]{
-	width: 100%;
-	height: 40px;
-	border-radius: 40px;
-	background-color: #00BCD4;
-	color: #212121;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	font-size: 1em;
-	font-weight: 600;
+label{
+	font-weight: bold;
+	font:2rem 'dar';
+	color:white;
+	margin-bottom:10px;
+	margin-top:10px;
 }
-
-.form-box{
-	border-radius: 25px;
-	position: relative;
-	width: 400px;
-	height: 450px;
-	background: rgba(10, 10, 10, .4);
-	border: 2px solid rgba(255, 255, 255, 0.5);
-	backdrop-filter: blur(15px);
-	display: flex;
+h1{
+	margin-top:70px;
+	text-align:center;
+	font-weight: unset;
+	color:white;
+	font:3rem 'dar';
+}
+form{
+	display:flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-
-.inputbox{
-	position: relative;
-	margin: 30px 0;
-	width: 310px;
-	border-bottom: 2px solid #fff;
+input{
+padding:8px;
+text-align: center;
 }
-.inputbox label{
-	position: absolute;
-	top: 30px;
-	left: 5px;
-	transform: translateY(-50%);
-	color: #fff;
-	font: size: 1em;
-	pointer.events: none;
-	transition: .5s;
+#iniciar{
+	margin-top:10px;
+	padding: 10px;
+	border-radius:10px 10px 10px 10px;
+    transition:all 1s;
+    cursor:pointer;
 }
+#iniciar:hover{
 
-input:focus ~ label,
-input:valid ~ label{
-	top: -5px;
+transform:translateY(-10px);
+
 }
 
-.inputbox input{
-	width: 100%;
-	height: 50px;
-	background: transparent;
-	border: none;
-	outline: none;
-	font-size: 1em;
-	padding: 0 35px 0 5px;
-	color: #fff;
+#otroLogin{
+	border:1px solid black;
+	width:60%;
+	margin:50px auto;
+	background:rgba(0,0,0,.5);
+	border-radius:15px 20px 15px 20px;
+	transition:all 1s;
 }
-.inputbox img{
-	position: absolute;
-	right: 8px;
-	color: #fff;
-	font-size: 1.2rem;
-	top: 20px;
+#otroLogin:hover{
+	background:rgba(0,0,0,.9);
+	border:1px solid grey;
+	box-shadow:35px 30px 100px grey;	
 }
 
-.error{
-	color: #ff0000;
-	font-weight: bolder;
-	text-transform: uppercase;
-	margin: -15px 0px 20px;
-	text-align: center;
-}
-
-.hidden{
-	display: none;
-}
-
-
-footer{
-  background-color: #00BCD4;
-  text-align: center;
-}

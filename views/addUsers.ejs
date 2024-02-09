@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AddUsers</title>
+	<style type="text/css">
+      @font-face{
+          font-family:'dar';
+          src:url('/fuentes/Gamer.ttf');
+        }
+	  body{
+	background-image:url('https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	background-size:cover;
+	background-attachment: fixed;
+}
+		form{
+			color:white;
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border:1px solid black;
+			width:40%;
+			margin:50px auto;
+			padding:1rem;
+			background:rgba(0,0,0,.7);
+		}
+		input{
+			margin:.5rem;
+			text-align: center;
+		}
+        h1{
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        width:100%;
+        font:4rem 'dar';
+        margin:50px auto;
+        color:white;
+        }
+        label{
+        font:2rem 'dar';
+        }
+        .i{
+        	cursor:pointer;
+        }
+	</style>
+</head>
+<body>
+<h1>Add Users</h1>
+
+<form action="/addUser" method="post">
+	<label>Nombre</label>
+	<input type="text" name="nombre">
+
+	<label>apellido</label>
+	<input type="text" name="apellido">
+
+	<label>cedula</label>
+	<input type="number" name="cedula">
+
+	<label>Correo</label>
+	<input type="email" name="correo">
+
+	<label>Password</label>
+	<input type="password" name="password">
+
+    <div style='display:flex;'>
+    	<input type="submit" value='agregar' class='i'>
+	    <input type="button" value='cancelar' onclick="volver()" class='i'>
+    </div>
+	
+</form>
+<script type="text/javascript">
+	function volver(){
+		window.location.href='/usuarios';
+	}
+</script>
+</body>
+</html>

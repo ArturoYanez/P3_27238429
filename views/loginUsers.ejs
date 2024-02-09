@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+ <title><%= og.title %></title>
+  <meta name="description" content="<%= og.description %>">
+  <meta property="og:title" content="<%= og.title %>">
+  <meta property="og:description" content="<%= og.description %>">
+  <meta property="og:image" content="<%= og.image %>">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+<!--Google Analytics-->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+  gtag('config', 'UA-XXXXXXXXX-X');
+</script>
+<!--Schema Markup-->
+ <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Smarphone",
+    "datePublished": "2024-01-26",
+    "author": {
+      "@type":"Person",
+      "name": "Randis Graterol"
+    },
+    "publisher":{
+      "@type": "Organization",
+      "name": "Smarphope Solution",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn-icons-png.flaticon.com/128/186/186239.png"
+      }
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "width": "800",
+      "height": "600"
+    },
+    "description": "Telefonos Inteligentes de alta resolución"
+  }
+  </script>
+	<style type="text/css">
+		@font-face{
+			font-family:'fuente';
+			src:url('/fuentes/Gamer.ttf');
+		}
+		     body{
+	background-image:url('https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	background-size:cover;
+	background-attachment: fixed;
+}
+
+		form{
+			color:white;
+			display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            border:1px solid grey;
+            margin:2% auto;
+            width:30%;
+            height:auto;
+            padding: 10px;
+            background:rgba(0, 0, 0,.7);
+		}
+		.divInfo{
+			display: flex;
+			flex-direction:column;
+			justify-content: center;
+			align-items: center;
+		}
+		input{
+			padding:5px;
+			border-radius:10px;
+			text-align: center;
+		}
+		label{
+			margin-bottom:20px;
+			margin-top:20px;
+			font-size:1.3rem;
+		}
+		h1{
+			text-align:center;
+			font:3.5rem 'fuente';
+			color:white;
+            text-shadow: 15px 15px 5px black;
+            user-select:none;
+		}
+		#divTitulo{
+			width:40%;
+			margin:50px auto;
+		}
+		#enviar{
+			cursor: pointer;
+			margin-top:10px;
+		}
+		a{
+			text-decoration: none;
+			color:rgb(116, 188, 243);
+		}
+
+		@media screen and (max-width:720px){
+         form{
+			color:white;
+			display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            border:1px solid grey;
+            margin:2% auto;
+            width:80%;
+            height:auto;
+            padding: 10px;
+            background:rgba(0, 0, 0,.7);
+		}
+		h1{
+			text-align:center;
+			font:3.4rem 'fuente';
+			color:white;
+            text-shadow: 15px 15px 5px black;
+            user-select:none;
+            margin-top:3rem;
+		}
+		}
+	</style>
+	<script type="text/javascript" src="/javaScript/alert.js"></script>
+	 <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Smarphone",
+    "datePublished": "2024-01-26",
+    "author": {
+      "@type":"Person",
+      "name": "Randis Graterol"
+    },
+    "publisher":{
+      "@type": "Organization",
+      "name": "Smarphope Solution",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn-icons-png.flaticon.com/128/186/186239.png"
+      }
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "width": "800",
+      "height": "600"
+    },
+    "description": "Telefonos Inteligentes de alta resolución"
+  }
+  </script>
+</head>
+<body>
+	<div id='divTitulo'>
+		<h1>Inicio de Sesion</h1>
+	</div>
+
+
+<form action="/loginUsers" method="post">
+
+<div class='divInfo'>
+ <label>Correo Electronico</label>
+ <input type="email" name="email" required>
+</div>
+
+<div class='divInfo'>
+ <label>Contraseña</label>
+ <input type="password" name="password" required>	
+</div>
+
+<div class='divInfo'>
+	<input type="submit" value="Iniciar" id='enviar'>
+</div>
+
+ <p>¿No tienes una cuenta? registrate aqui</p>
+ <a href="/registroUsers">Registro</a>
+
+ <p>¿Haz olvidado tu contraseña?</p>
+ <a href="/recuperarPassword">Haz click aqui</a>
+
+</form>
+<script type="text/javascript">
+	fetch('/mensageDeRegistro')
+	.then(res=> res.json())
+	.then(respuesta=>{
+		if(respuesta.mensaje == false){
+			console.log('No se recibio nada de la ruta "mensajeDeRegistro" ');
+		}else{
+			  console.log('--_--_--'+respuesta.mensaje+'--_--_--');
+			  Swal.fire('¡Se ha Registrado Exitosamente!')
+			  .then(()=>{
+			  	 fetch('/eliminarMensajeRegistro')
+			  	 .then(res=>res.json())
+			  	 .then(respuesta2=>{
+			  	 	if(respuesta2.mensaje === false){
+			  	 		console.log('mensaje inexistente');
+			  	 	}			  
+			  	 })
+			  })
+		}
+	})
+</script>
+</body>
+</html>
