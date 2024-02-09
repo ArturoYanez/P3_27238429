@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta charset="iso-8559-1"/>
+    <meta name= "description" content="pagina de enseñanza"/>
+    <meta name="keywords" content="html5,javascript,diseño web"/>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/update.css">
+    <link rel="stylesheet" href="/css/footer.css">
+   <title>Register</title>
+</head>
+<body>
+  <section>
+		<div class="form-box">
+			<div class="form-value">
+				<form id="login_form" class="login_form" action="/registroUsuariosPost" method="post">
+					<h2>Registrar Usuario</h2>
+					<div class="inputbox">
+						<input type="text" name="nombre" autofocus required autocomplete="true">
+						<label for="nombre">Nombre</label>
+					</div>
+					<div class="inputbox">
+						<input type="tet" name="apellido" required autocomplete="true">
+						<label for="apellido">Apellido</label>
+					</div>
+          <div class="inputbox">
+						<input type="number" name="cedula" required autocomplete="true">
+						<label for="cedula">Cedula</label>
+					</div>
+          <div class="inputbox">
+						<input type="email" name="email" required autocomplete="true">
+						<label for="email">Correo</label>
+					</div>
+         <div class="inputbox">
+						<input type="password" name="contrasena" required autocomplete="true">
+						<label for="calidad">Contraseña</label>
+					</div>
+					<div class="g-recaptcha" data-sitekey="6LcoNy0pAAAAANL1RlKBWgjSPc2mn7qI5Gf59Xo3"></div>
+					<input type="submit" value="Agregar" id="update">
+          <a href="/" class="boton">Volver</a>
+				</form>
+			</div>
+		</div>
+	</section>
+<%- include('footer') -%>
+</body>
+</html>

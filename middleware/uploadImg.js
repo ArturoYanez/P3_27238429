@@ -1,3 +1,5 @@
+//Randis Graterol
+
 function getContentType(extname) {
   switch (extname) {
     case '.html':
@@ -18,6 +20,8 @@ function getContentType(extname) {
       return null;
   }
 }
+
+
 module.exports={
 getContentType
 }

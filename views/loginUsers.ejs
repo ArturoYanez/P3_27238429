@@ -15,25 +15,26 @@
 	<section>
 		<div class="form-box">
 			<div class="form-value">
-				<form id="login_form" class="login_form" action="/login" method="post">
+				<form id="login_form" class="login_form" action="/loginUsers" method="post">
 					<h2>Iniciar Sesión</h2>
 					<div class="inputbox">
 						<img src="img/person-outline.png" width="24" alt="Icon for password input">
-						<input type="text" name="admin" id="admin" required autocomplete="true">
-						<label for="admin">Admin</label>
+						<input type="email" name="email" id="admin" required autocomplete="true">
+						<label for="email">Email</label>
 					</div>
 					<div class="inputbox">
 						<img src="img/lock-closed-outline.png" width="24" alt="Icon for password input">
 						<input type="text" name="password" id="password" required autocomplete="true">
 						<label for="password">Password</label>
 					</div>
-					<input type="submit" name="enviar" value="Login" id="iniciar">
+					<input type="submit" name="enviar" value="Iniciar" id="iniciar">
+					<div class="registerInvite">
+						 ¿No tienes una cuenta? registrate aqui
+						 <a href="/registroUsers">Registro</a>
+					</div>
 				</form>
 			</div>
 		</div>
 	</section>
 </body>
 </html>
-
-
-

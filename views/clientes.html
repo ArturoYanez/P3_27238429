@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta charset="iso-8559-1"/>
+  <meta name= "description" content="Página para la venta de productos relacionados con la perdida de peso."/>
+  <meta name="keywords" content="html5,javascript,diseño web, salud, perdida de peso, peso, salud, bienestar, ejercicio, vida saludable"/>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/footer.css">
+  <link rel="icon" href="https://www.flaticon.es/iconos-gratis/limpieza">
+  <script type="text/javascript" src="../static/javaScript/alert.js"></script>
+  <title>Productos de limpieza</title>
+</head>
+<body>
+
+  <header class="header-content">
+    <nav class="navbar">
+      <h1 class="namepage">Namepage</h1>  
+      <div class="links-box">
+        <input type="search" placeholder="Buscar" id='buscarPrincipal' class="search-input">
+        <a href="#scroll"><button onclick="buscarProductos()" id='boton3'>Buscar</button></a> 
+      </div>
+
+      <div class="links-box">
+        <a href="/">Inicio</a>
+        <a href="/productos">Productos</a>
+        <a href="/categorias">Categorias</a>
+        <a href="/login" class="login">Login</a>
+      </div>
+    </nav>
+
+    <section class="banner-info">
+      <h2>¡Conoce nuestras nuevas fragancias!</h2>
+      <p>Deja imecables tus esacios, y deslumbra  a tu familia con nuestro nuevo juego de aromas.</p>
+      <a href="#" class="banner-button">Ver ahora</a>
+    </section>
+  </header>
+
+  <!-----------------------------------------------------------------> 
+
+  <!-- Content section-->
+  <section class="py-5">
+    <h2 id='productosH2'>Productos</h2>
+    <div class="container my-5">
+      <div class="row justify-content-center">
+       <button id='botonCuadricula' onClick="cuadricula()"><img src="/icon/menu2.png" style='width:100%;border:none'></button>
+
+       <!----------------+++++++++++++++++++++---->    
+       <div class='product' id='listaDeProductos'>
+        <% for(let x = 0;x < producto.length;x++){ %>   
+        <div class='productooo'>
+         <img src="<%= producto[x].imagen_url %>" class='imagen' id='imagenSelector'>
+         <br>
+         <div id='NPB'>
+           <div style='display:flex;flex-direction: column;justify-content:center;align-items:center'>
+            <p><strong>Nombre:</strong><%= producto[x].nombre %></p>
+            <strong><p>Precio: </strong><span style='color:green'><%= producto[x].precio %> $</span></p>
+          </div>
+          <div id='comprarDetalles'>
+           <a href="/comprar/<%=producto[x].producto_id%>"><img src="/icon/comprar.png" width="30"></a>
+           <a href="/detalles/<%=producto[x].producto_id%>" style='margin-top:7px;margin-left:8px;color:blue'>Detalles</a> 
+         </div>
+
+       </div>
+
+     </div>
+
+     <% } %>
+
+
+     <table class='table'>
+
+      <thead>
+        <tr style='border:1px solid black'>
+
+          <th class='column'>Imagen</th>
+          <th class='column'>Nombre</th>
+          <th class='column'>Codigo</th>
+          <th class='column'>Precio</th>
+          <th class='column'>Descripcion</th>
+          <th class='column'>Color</th>
+          <th class='column'>Peso</th>
+          <th class='column'>Categoria</th>
+          <th class='column'>Opciones</th>
+
+        </tr>
+      </thead>
+
+      <tbody>
+        <%for(let u = 0;u < producto.length;u++){%>
+        <tr class='tr' style='border:1px solid black'><!--ul-->
+          <!--li-->
+          <td class='column'><img src="<%= producto[u].imagen_url %>" style='width:100%;height:17vh'></td>
+          <td class='column'><%= producto[u].nombre %></td>
+          <td class='column'><%= producto[u].codigo %></td>
+          <td class='column'><%= producto[u].precio %></td>
+          <td class='column'><%= producto[u].descripcion %></td>
+          <td class='column'><%= producto[u].color %></td>
+          <td class='column'><%= producto[u].peso %></td>
+          <td class='column'><%= producto[u].categoria_id %></td>
+          <td style='display:flex;flex-direction:column;justify-content:center;align-items: center;'>
+           <a href="/comprar/<%=producto[u].producto_id%>"><img src="/icon/comprar.png" width="30"></a>
+           <a href="/detalles/<%=producto[u].producto_id%>" style='margin-top:7px;margin-left:8px;color:blue'>Detalles</a>  
+         </td>
+
+       </tr> 
+       <% } %>
+     </tbody>
+
+   </table>
+
+   <%for(let l = 0 ; l < producto.length; l++){%>
+   <ul class='ULtabla3'>
+    <li class='LItabla3'><img src="<%= producto[l].imagen_url %>" style='width:40%;'></li>
+    <li class='LItabla3'><span>Nombre: </span><span><%= producto[l].nombre %></span></li>
+    <li class='LItabla3'><span>Codigo: </span><span><%= producto[l].codigo %></span> </li>
+    <li class='LItabla3'><span>Precio: </span><span><%= producto[l].precio %></span> </li>
+    <li class='LItabla3'><span>Descripcion: </span><span><%= producto[l].descripcion %></span></li>
+    <li class='LItabla3'><span>Color: </span><span><%= producto[l].color %></span></li>
+    <li class='LItabla3'><span>Peso: </span><span><%= producto[l].peso %></span></li>
+    <li class='LItabla3'><span>Categoria: </span><span><%= producto[l]. categoria_id %></span></li>
+    <li class='LItabla3'>
+      <a href="/comprar/<%=producto[l].producto_id%>"><img src="/icon/comprar.png" width="30"></a>
+      <a href="/detalles/<%=producto[l].producto_id%>" style='margin-top:7px;margin-left:8px;color:blue'>Detalles</a>  
+    </li>
+  </ul>
+  <% } %>
+
+</div>
+<!----------------+++++++++++++++++++++---->  
+</div>
+</div>
+</section>
+<!--------------------------------------------------------->          
+
+<!-- Image element - set the background image for the header in the line below-->
+<div class="bg-image-full" style="background-image: url('https://images.unsplash.com/photo-1607027340690-37e80b0f1b31?q=80&w=1073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+  <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+  <div style="height: 20rem"></div>
+</div>
+
+
+
+<!-- Content section-->
+<section class="py-5">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+
+     <div class="col-lg-6" id='galeriaImagenes'>
+
+
+
+      <div class='buscar2'> 
+        <h2 id='scroll'>Busqueda</h2>
+
+        <div style='display:flex'>
+         <input type="search" id="searchInputt" placeholder="Buscar Producto"> 
+
+         <button onClick="buscarProductos2()" id='boton2'>Buscar</button>
+       </div>
+
+
+
+     </div>
+     <br>
+     <br>
+     <!--88888888888888888888888888888888888888-->
+   </div>
+
+ </div>
+</div>
+</section>
+
+<!--------------------------------------------------------->
+<section id='texto'>
+  <p>Comodidad a la hora de comprar tus productos , gran variedad de precios y equipos telefonicos , disponibles con solo un click</p>
+</section>
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+  <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+</footer>
+
+<script src="http://localhost:4000/socket.io/socket.io.js"></script>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script type="text/javascript" src='/JavaScript/cliente.js'></script>
+<script type="text/javascript">
+ fetch('/transaction')
+ .then(res=>res.json())
+ .then(respuesta=>{
+  if(respuesta.message !== false){
+   console.log(respuesta);
+   Swal.fire(respuesta.transaction.message)
+
+   .then(() =>{
+        // Aquí la alerta se ha cerrado
+        console.log("Alerta cerrada");
+        fetch('/eliminarTransaction')
+        .then(res=> res.json())
+        .then(respuesta2=>{
+          console.log(`Message : ${respuesta2.message}`);
+        })
+        .catch(error => {
+         console.error('*_*/-[Error]-/*_*:', error);
+       });
+      }); 
+
+   console.log(respuesta.transaction.message,'respuesta del server');  
+ }else{
+  console.log('No se recibio respuesta of the transaction'); 
+}
+
+})
+</script>
+</body>
+</html>
