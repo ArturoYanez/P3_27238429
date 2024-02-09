@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<body>
 <head>
     <meta charset="utf-8">
     <meta charset="iso-8559-1"/>
@@ -7,25 +8,32 @@
     <meta name="keywords" content="html5,javascript,diseño web"/>
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/update.css">
-    <link rel="stylesheet" href="/css/footer.css">
-   <title>Update</title>
+   <title>Categorias</title>
 </head>
-<body>
-  <section>
-		<div class="form-box">
-			<div class="form-value">
-				<form id="login_form" class="login_form" action="/addCategorias" method="post">
-					<h2>Agregar Categoria</h2>
-					<div class="inputbox">
-						<input type="text" name="nombre" autofocus required autocomplete="true">
-						<label for="nombre">Nombre</label>
-					</div>
-					<input type="submit" value="Agregar" id="update">
-                    <a href="/categorias" class="boton">Cancelar</a>
-				</form>
-			</div>
-		</div>
-	</section>
-<%- include('footer') -%>
+
+<div id="botones">
+    <a href="/categorias" id="botonProductos">Volver</a>
+</div>
+
+ <h1 id="crear">Agregar Categoria</h1>
+
+<form action="/addcategorias" method="post">
+
+<div class='flex-principal'>
+
+<!------------------------------------------>
+<label for="nombre">Nombre</label>
+
+<input type="text" autofocus name="nombre" placeholder="Nombre" />
+
+<!------------------------------------------>
+<input type="submit" value="Agregar" id="update">
+</div>
+
+<!------------------------------------------->
+	
+
+
+</form>
 </body>
 </html>

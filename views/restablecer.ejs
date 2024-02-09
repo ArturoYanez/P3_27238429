@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	 <title><%= og.title %></title>
+	<title><%= og.title %></title>
   <meta name="description" content="<%= og.description %>">
   <meta property="og:title" content="<%= og.title %>">
   <meta property="og:description" content="<%= og.description %>">
@@ -47,79 +47,71 @@
   }
   </script>
 	<style type="text/css">
-	 @font-face{
-            font-family:'fuenteC';
-            src:url(/fuentes/Gamer.ttf);
-           }
-           body{
-           	  background-color:rgb(180, 180, 180,.4); 
 
-           }
-		img{
-			width:25%;
-			height: auto;
-			margin:20px;
+		body{
+			background-image:url('https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	        background-size:cover;
+	        background-attachment: fixed;
 		}
-		#contenedor{
+		form{
 			display:flex;
+			flex-direction: column;
 			justify-content: center;
-		 width: 80%;
-		 margin:70px auto;
+			align-items:center;
+			background:rgba(0,0,0,.6);
+			width:30%;
+			margin:3rem auto;
 		}
-		h1{
-			text-align: center;
-			line-height:100px;
-			font:50px 'fuenteC';
+		label{
+			color:white;
+			font-weight:bold;
+			font-size:1.5rem;
+			margin-top: 2rem;
 		}
-		a{
-			text-decoration:none;
-			color:black;
-			font:30px 'fuenteC';
-			margin-left:20px;
+		input{
+			margin-top:2rem;
 		}
-		@media screen and (max-width: 720px){
-
-			#contenedor{
-				display:flex;
-				flex-wrap: wrap;
-				justify-content: center;
-				align-items:center;
-			}
-			.divSecundario{
-				display:flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-			}
-			img{
-			width:70%;
-			height: auto;
-			margin:20px;
+		.contenedorBotonera{
+			display:flex;
 		}
-
+		.contenedorBotonera input{
+			margin:2rem;
+			cursor:pointer;
 		}
+         h1{
+         	color:white;
+         	display:flex;
+         	justify-content: center;
+         	margin-top:2rem;
+         	background: rgba(0,0,0,.6);
+         }
 	</style>
-	
 </head>
 <body>
-  <h1>Detalles del producto</h1>
 
-   <div id='contenedor'>
-  <%for(let m = 0;m < imagenes.length;m++){ %>
-   <img src="<%= imagenes[m].url%>">
+<h1>Restablece tu contraseña</h1>
+    
+<form action='/restablecer-contrasena' method="POST">
+	<label>Contraseña Nueva</label>
+	<input type="password" name="password">
+	<label>Confirmar Contraseña</label>
+	<input type="password" name="passwordC">
+    
+    <input type="text" name="userName" value="<%=user%>" hidden='true'>
+     
+     <div class="contenedorBotonera">
+     	
+	  <input type="submit" value="enviar">
+	  <input type="button" value="Login" onclick="login()">
 
-   <div class='divSecundario'>
-   <p><strong>Nombre :</strong><%= imagenes[m].nombre%></p>
-   <p><strong>Codigo :</strong><%= imagenes[m].codigo%></p>
-   <p><strong>Precio :</strong><span style='color:green'><%= imagenes[m].precio%>$</span></p>
-   <p><strong>Descripcion :</strong><%= imagenes[m].descripcion%></p>
-   <p><strong>Color :</strong><%= imagenes[m].color%></p>
-   <p><strong>Peso :</strong><%= imagenes[m].peso%></p>
-   <p><strong>Categoria :</strong><%= imagenes[m].categoria_id%></p>
-   </div>
-  <% } %>
-   </div>
-   <a href="/clientes">Volver</a>
+     </div>
+</form>
 
+
+<script type="text/javascript">
+	function login(){
+		window.location.href='/loginUsers';
+	}
+</script>
 </body>
 </html>
