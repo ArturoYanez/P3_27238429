@@ -1,52 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta charset="iso-8559-1"/>
-    <meta name= "description" content="pagina de enseñanza"/>
-    <meta name="keywords" content="html5,javascript,diseño web"/>
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/update.css">
-    <link rel="stylesheet" href="/css/footer.css">
-   <title>Update</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AddUsers</title>
+	<style type="text/css">
+      @font-face{
+          font-family:'dar';
+          src:url('/fuentes/Gamer.ttf');
+        }
+	  body{
+	background-image:url('https://images.unsplash.com/photo-1563248870-e45d2e6df7ee?auto=format&fit=crop&q=80&w=1275&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+	background-size:cover;
+	background-attachment: fixed;
+}
+		form{
+			color:white;
+			display:flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			border:1px solid black;
+			width:40%;
+			margin:50px auto;
+			padding:1rem;
+			background:rgba(0,0,0,.7);
+		}
+		input{
+			margin:.5rem;
+			text-align: center;
+		}
+        h1{
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        width:100%;
+        font:4rem 'dar';
+        margin:50px auto;
+        color:white;
+        }
+        label{
+        font:2rem 'dar';
+        }
+        .i{
+        	cursor:pointer;
+        }
+	</style>
 </head>
 <body>
-  <section>
-		<div class="form-box">
-			<div class="form-value">
-				<form id="login_form" class="login_form" action="/addUser" method="post">
-					<h2>Agregar Usuario</h2>
-					<div class="inputbox">
-						<input type="text" name="nombre" autofocus required autocomplete="true">
-						<label for="nombre">Nombre</label>
-					</div>
+<h1>Add Users</h1>
 
-					<div class="inputbox">
-						<input type="text" name="apellido" required autocomplete="true">
-						<label for="apellido">Apellido</label>
-					</div>
+<form action="/addUser" method="post">
+	<label>Nombre</label>
+	<input type="text" name="nombre">
 
-          <div class="inputbox">
-						<input type="text" name="cedula" required autocomplete="true">
-						<label for="cedula">Cedula</label>
-					</div>
+	<label>apellido</label>
+	<input type="text" name="apellido">
 
-          <div class="inputbox">
-						<input type="text" name="correo" required autocomplete="true">
-						<label for="correo">Correo</label>
-					</div>
-          
-          <div class="inputbox">
-						<input type="text" name="password" required autocomplete="true">
-						<label for="password">Password</label>
-					</div>
+	<label>cedula</label>
+	<input type="number" name="cedula">
 
-					<input type="submit" value="agregar" id="update">
-          <a href="/productos" class="boton">Volver</a>
-				</form>
-			</div>
-		</div>
-	</section>
-<%- include('footer') -%>
+	<label>Correo</label>
+	<input type="email" name="correo">
+
+	<label>Password</label>
+	<input type="password" name="password">
+
+    <div style='display:flex;'>
+    	<input type="submit" value='agregar' class='i'>
+	    <input type="button" value='cancelar' onclick="volver()" class='i'>
+    </div>
+	
+</form>
+<script type="text/javascript">
+	function volver(){
+		window.location.href='/usuarios';
+	}
+</script>
 </body>
 </html>
